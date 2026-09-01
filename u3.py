@@ -22,6 +22,9 @@ class Robot:
     def walk(self):
         print(f"{self.name}: walked one step")
 
+    def status(self):
+        print(f"{self.name}: energy: {self.energy}")
+
 
 class BattaleRobot(Robot):
     def laser(self):
@@ -34,4 +37,10 @@ class RepairRobot(Robot):
 
 br = BattaleRobot(85, "RB1")
 
+rr = RepairRobot(999, "RR67")
+
+br.status()
 br.walk()
+
+rr.repair()
+rr.status()
