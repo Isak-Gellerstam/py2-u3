@@ -41,9 +41,9 @@ class RepairRobot(Robot):
         print(f"{self.name}: repairing: {target.name}: {target.energy} energy")
 
 
-battale_bot = BattaleRobot(85, "battale_bot")
+battale_bot = BattaleRobot(50, "battale_bot")
 
-heal_bot = RepairRobot(90, "heal_bot")
+heal_bot = RepairRobot(100, "heal_bot")
 
 battale_bot.status()
 battale_bot.walk()
