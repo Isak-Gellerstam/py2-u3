@@ -1,4 +1,5 @@
-# Denna uppgift består av tre delar. I första delen ska du skapa en generell klass som heter Roboto. Sen ska du skapa klasser för BattleRobo och RepairRobot. De ska ärva från Robot.
+# Denna uppgift består av tre delar. I första delen ska du skapa en generell klass som heter Robot. 
+# Sen ska du skapa klasser för BattleRobo och RepairRobot. De ska ärva från Robot.
 
 # https://www.w3schools.com/python/python_inheritance.asp
 
@@ -27,20 +28,26 @@ class Robot:
 
 
 class BattaleRobot(Robot):
+
     def laser(self):
-        print(f"{self.name}: fired laser")
+        self.energy -= 5
+        print(f"{self.name}: fired laser, {self.energy} energy ramaning")
 
 class RepairRobot(Robot):
-    def repair(self):
-        print(f"{self.name}: repairing")
+
+    def repair(self, target):
+        self.energy -= 10
+        target.energy += 15
+        print(f"{self.name}: repairing: {target.name}: {target.energy} energy")
 
 
-br = BattaleRobot(85, "RB1")
+battale_bot = BattaleRobot(85, "battale_bot")
 
-rr = RepairRobot(999, "RR67")
+heal_bot = RepairRobot(90, "heal_bot")
 
-br.status()
-br.walk()
+battale_bot.status()
+battale_bot.walk()
+battale_bot.laser()
 
-rr.repair()
-rr.status()
+heal_bot.repair(battale_bot)
+heal_bot.status()
