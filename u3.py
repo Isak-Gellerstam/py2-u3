@@ -29,16 +29,15 @@ class Robot:
 
 class BattaleRobot(Robot):
 
-    def laser(self):
+    def action_1(self):
         self.energy -= 5
         print(f"{self.name}: fired laser, {self.energy} energy ramaning")
 
 class RepairRobot(Robot):
 
-    def repair(self, target):
+    def action_1(self,):
         self.energy -= 10
-        target.energy += 15
-        print(f"{self.name}: repairing: {target.name}: {target.energy} energy")
+        print(f"{self.name}: repairing")
 
 
 battale_bot = BattaleRobot(50, "battale_bot")
@@ -47,7 +46,14 @@ heal_bot = RepairRobot(100, "heal_bot")
 
 battale_bot.status()
 battale_bot.walk()
-battale_bot.laser()
+battale_bot.action_1()
 
-heal_bot.repair(battale_bot)
+heal_bot.action_1()
 heal_bot.status()
+
+
+# u5
+squad = [battale_bot, heal_bot]
+
+for bot in squad:
+    bot.action_1()
